@@ -2,7 +2,7 @@ const CallContract = async (activeUser: any) => {
   const makeBlockchainTransaction: any = {
     actions: [
       {
-        account: "CONTACT_NAME",
+        account: "CONTRACT_NAME",
         name: "CONTRACT_ACTION_NAME",
         authorization: [
           {
@@ -12,7 +12,7 @@ const CallContract = async (activeUser: any) => {
         ],
         data: {
           // Any data to send to the blockchain ie the wallet name:
-          // participant: activeUser.accountName,
+          // participant: activeUser.accountName, <- the currently signed in wallet
         },
       },
     ],
