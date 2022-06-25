@@ -5,6 +5,8 @@ This is a starter for a Next.js website with integration of the [WAX-blockchain]
 * TypeScript
 * Tailwind
   
+  # Not a TypeScript fan?
+  Use JavaScript files instead. 
 
 
 To get started.

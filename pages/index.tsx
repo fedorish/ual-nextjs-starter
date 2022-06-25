@@ -1,6 +1,8 @@
 import Head from "next/head";
+import React from "react"
 //@ts-ignore
 import { withUAL } from "@cmichel/ual-reactjs-renderer";
+import GetTableData from "@/util/contracts/GetContractTableData";
 
 type Props = {
   ual: any;
@@ -9,6 +11,20 @@ const Home = (props: Props) => {
   const {
     ual: { activeUser, activeAuthenticator, logout, showModal },
   } = props;
+
+
+  const [tableData, setTableData] = React.useState([])
+
+  React.useEffect(() => {
+
+    const fetchTableData = async () => {
+      const data = await GetTableData()
+      console.log(data)
+      setTableData(data.rows)
+    }
+    fetchTableData()
+  }, [])
+
   return (
     <>
       <div>
@@ -34,6 +50,12 @@ const Home = (props: Props) => {
                 Login
               </button>
             )}
+          </div>
+          <div>
+            {!!tableData.length && <div>
+              <div>Sample data from `GetContractTableData.ts`:</div>
+              <div>{JSON.stringify(tableData[0])}</div>
+            </div>}
           </div>
         </main>
       </div>
